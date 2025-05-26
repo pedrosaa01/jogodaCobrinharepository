@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <title>Snake Game - Lucas</title>
+
+    <!-- Fonte estilo retrô tipo Minecraft -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div id="gameContainer">
+
+    <h1>Snake Game</h1>
+
+    <!-- Tela inicial -->
+    <div id="startScreen" class="overlayScreen active">
+        <h2>Bem-vindo ao Snake Game!</h2>
+        <p>Use as setas do teclado ou deslize no celular para controlar a cobrinha.</p>
+        <button id="btnStart">Iniciar Jogo</button>
+    </div>
+
+    <!-- Tela de pausa -->
+    <div id="pauseScreen" class="overlayScreen">
+        <h2>Jogo Pausado</h2>
+        <button id="btnResume">Continuar</button>
+    </div>
+
+    <!-- Tela de game over -->
+    <div id="gameOverScreen" class="overlayScreen">
+        <h2>Fim de Jogo!</h2>
+        <p id="finalScore"></p>
+        <p id="finalRecord"></p>
+        <button id="btnRestart">Reiniciar</button>
+    </div>
+
+    <canvas id="snake" width="512" height="512"></canvas>
+
+    <div id="infoBar">
+        <div>
+            <span>Frutas: <span id="score">0</span></span>
+            <span>Recorde: <span id="record">0</span></span>
+        </div>
+        <div>
+            <label for="skinSelect">Skin:</label>
+            <select id="skinSelect">
+                <option value="classic">Clássica</option>
+                <option value="blue">Azul</option>
+                <option value="red">Vermelha</option>
+            </select>
+            <button id="btnMute">🔊</button>
+            <button id="btnPause">⏸</button>
+        </div>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

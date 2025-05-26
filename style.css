@@ -1,0 +1,141 @@
+body {
+    margin: 0;
+    background: linear-gradient(45deg, #0d324d, #7f5a83, #cbbacc);
+    font-family: 'Press Start 2P', cursive;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    color: #fff;
+    user-select: none;
+}
+
+h1 {
+    margin: 0 0 20px 0;
+    font-size: 28px;
+    text-shadow: 2px 2px #222;
+}
+
+#gameContainer {
+    position: relative;
+    width: 512px;
+    box-shadow: 0 0 20px #00bcd4;
+    border-radius: 12px;
+    background: #112f4a;
+}
+
+canvas#snake {
+    display: block;
+    background: linear-gradient(135deg, #a5d6a7, #4caf50);
+    border: 5px solid #00796b;
+    border-radius: 8px;
+    box-shadow: 0 0 15px #004d40;
+}
+
+#infoBar {
+    margin-top: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 12px 12px 12px;
+    font-size: 14px;
+}
+
+#infoBar span {
+    margin-right: 24px;
+}
+
+#skinSelect {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
+    padding: 4px 6px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+}
+
+button {
+    font-family: 'Press Start 2P', cursive;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 6px 10px;
+    margin-left: 6px;
+    border: none;
+    border-radius: 8px;
+    background: #00796b;
+    color: #fff;
+    box-shadow: 0 4px 6px #004d40;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #004d40;
+    box-shadow: 0 6px 10px #00796b;
+}
+
+.overlayScreen {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(17, 47, 74, 0.95);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    border-radius: 12px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    text-align: center;
+    padding: 20px;
+}
+
+.overlayScreen.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.overlayScreen h2 {
+    margin-bottom: 20px;
+    font-size: 22px;
+    color: #00bcd4;
+    text-shadow: 1px 1px #004d40;
+}
+
+.overlayScreen p {
+    margin-bottom: 30px;
+    font-size: 14px;
+    color: #b2dfdb;
+}
+
+#finalScore, #finalRecord {
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+/* Partículas */
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: particleAnim 0.6s forwards;
+}
+
+@keyframes particleAnim {
+    0% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(var(--dx), var(--dy)) scale(0);
+    }
+}
+
+/* Scroll no mobile desativado durante jogo */
+body.playing, body.paused {
+    overflow: hidden;
+}
